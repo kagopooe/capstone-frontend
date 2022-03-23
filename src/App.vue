@@ -1,62 +1,42 @@
 <template>
   <div id="app">
-      <div class="q-pa-md q-gutter-sm">
+    <Navbar></Navbar>
+    <div class="content">
 
-    <q-bar>
-      <div class="cursor-pointer">File</div>
-      <div class="cursor-pointer">Edit</div>
-      <div class="cursor-pointer gt-xs">View</div>
-      <div class="cursor-pointer gt-xs">Window</div>
-      <div class="cursor-pointer">Help</div>
-      <q-space />
-      <q-btn dense flat icon="minimize" />
-      <q-btn dense flat icon="crop_square" />
-      <q-btn dense flat icon="close" />
-    </q-bar>
 
-    <q-bar class="bg-black text-white">
-      <div class="cursor-pointer">File</div>
-      <div class="cursor-pointer">Edit</div>
-      <div class="cursor-pointer gt-xs">View</div>
-      <div class="cursor-pointer gt-xs">Window</div>
-      <div class="cursor-pointer">Help</div>
-      <q-space />
-      <q-btn dense flat icon="minimize" />
-      <q-btn dense flat icon="crop_square" />
-      <q-btn dense flat icon="close" />
-    </q-bar>
 
+
+      </div>
+    
+    
+    <Footer></Footer>
   </div>
-
-
-
-
-
-
-
-
-
-
-
-
-    </div>
-  <h1>Test</h1>
-
-  
 
 </template>
 
 <style>
-/* #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-} */
+  .content {
+  height: 110vh;
+  background-image: url("https://3.bp.blogspot.com/-SOdRjw6o8bk/Wc5M4xtgCpI/AAAAAAAAY5A/OoLXIrGP2yEuTE7MPD_33UwQDPo05mF7ACLcBGAs/s1600/pizza-planet-wood-sign.jpg");
+  background-repeat: no-repeat;
+  width: 100%;
+}
+
+
+
 </style>
 
 <script>
+import Navbar from "./components/Navbar.vue"
+import Footer from './components/Footer.vue'
+
+export default {
+  components: {
+    Navbar: Navbar,
+    Footer: Footer
+  }
+}
+
+
 
 </script>

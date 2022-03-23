@@ -1,5 +1,5 @@
 import { createWebHistory, createRouter } from "vue-router";
-import Home from "./components/Home.vue";
+import Home from "./views/Home.vue";
 import Login from "./components/Login.vue";
 import Register from "./components/Register.vue";
 // lazy-loaded
