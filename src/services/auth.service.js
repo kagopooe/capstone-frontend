@@ -1,12 +1,12 @@
 import axios from 'axios';
 
-const API_URL = 'https://pizzaworld-capstone.herokuapp.com/api/auth';
+const API_URL = 'https://pizzaplanet-capstone.herokuapp.com/api/auth';
 
 class AuthService {
   login(user) {
     return axios
-      .post(API_URL + 'signin', {
-        username: user.username,
+      .post(API_URL + '/signin', {
+        email: user.email,
         password: user.password
       })
       .then(response => {
@@ -23,9 +23,10 @@ class AuthService {
   }
 
   register(user) {
-    return axios.post(API_URL + 'signup', {
-      username: user.username,
+    return axios.post(API_URL + '/signup', {
+      fullname: user.fullname,
       email: user.email,
+      phone_number: user.phone_number,
       password: user.password
     });
   }

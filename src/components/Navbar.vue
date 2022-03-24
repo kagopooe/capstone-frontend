@@ -2,7 +2,7 @@
 <div id="nav">
  <nav class="navbar navbar-expand-lg navbar-light bg-white">
     <div class="container-fluid">
-    <a class="navbar-brand logo-nav" href="#">
+    <a class="navbar-brand logo-nav" href="/"> 
         <img src="../assets/logo.png" alt="pw" width="30" height="24" class="d-inline-block -top">
             Pizza Planet
     </a>
@@ -11,16 +11,14 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarNav">
-        <!-- replacing the ul with a div tag -->
-        <!-- <ul class="navbar-nav me-auto mb-2 mb-lg-0">   -->
         <div class="navbar-nav ms-auto ">
-            <!-- on each of the li tag , there is a class named *nav item*, copy it and place it on the a tag & delete the li -->
-            <!-- <a class=" nav-item nav-link active" aria-current="page" href="#">Home</a> -->
-            <!-- replace the a tag with the router link -->
             <router-link to="/" class="nav-item nav-link">Home</router-link>
-            <router-link to="/About" class="nav-item nav-link">Menu</router-link>
-            <router-link to="/Careers" class="nav-link">Order Now <span class="iconify" data-icon="charm:rocket"></span></router-link>
+            <router-link to="/Menu" class="nav-item nav-link">Menu</router-link>
+            <router-link to="/Order" class="nav-link">Order Now <span class="iconify" data-icon="charm:rocket"></span></router-link>
             <router-link to="/Contact" class="nav-link">Contact</router-link>
+            <router-link to="/profile" class="nav-link" v-if="currentUser"><span class="iconify" data-icon="gg:profile"></span> {{ currentUser.fullname  }}</router-link>
+            <router-link to="/Home" class="nav-link" v-if="currentUser" @click="logOut">Logout</router-link>
+            <router-link to="/login" class="nav-link" v-if="!currentUser"> Login</router-link>
         </div>
         </div>
     </div>
@@ -62,5 +60,24 @@ export default {
       
     };
   },
+  computed: {
+    currentUser() {
+      return this.$store.state.auth.user;
+    },
+    showAdminBoard() {
+      if (this.currentUser && this.currentUser['roles']) {
+        return this.currentUser['roles'].includes('ROLE_ADMIN');
+      }
+      return false;
+    },
+  },
+  methods: {
+    logOut() {
+      this.$store.dispatch('auth/logout');
+      this.$router.push('/');
+      alert("Successfully logged out")
+    }
+  }
+
 };
 </script>

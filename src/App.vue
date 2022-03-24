@@ -17,9 +17,8 @@
 <style>
   .content {
   height: 110vh;
-  background-image: url("https://3.bp.blogspot.com/-SOdRjw6o8bk/Wc5M4xtgCpI/AAAAAAAAY5A/OoLXIrGP2yEuTE7MPD_33UwQDPo05mF7ACLcBGAs/s1600/pizza-planet-wood-sign.jpg");
-  background-repeat: no-repeat;
   width: 100%;
+  
 }
 
 
