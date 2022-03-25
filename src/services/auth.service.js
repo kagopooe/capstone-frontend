@@ -28,7 +28,8 @@ class AuthService {
       email: user.email,
       phone_number: user.phone_number,
       password: user.password
-    });
+    })
+    
   }
 }
 

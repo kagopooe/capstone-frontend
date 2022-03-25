@@ -39,12 +39,12 @@ export const auth = {
     }
   },
   mutations: {
-    loginSuccess(state, user) {
+    loginSuccess(state,user) {
       state.status.loggedIn = true;
       //ls
       state.user = user;
     },
-    loginFailure(state,) {
+    loginFailure(state) {
       state.status.loggedIn = false;
       state.user = null;
     },
@@ -54,7 +54,7 @@ export const auth = {
     },
     registerSuccess(state, user) {
       state.status.loggedIn = true;
-      //ls
+      localStorage.setItem
       state.user = user;
     },
     registerFailure(state) {

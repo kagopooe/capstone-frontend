@@ -8,22 +8,22 @@
       />
       <Form @submit="handleRegister" :validation-schema="schema">
         <div v-if="!successful">
-          <div class="form-group">
+          <div class="form-group text-center">
             <label for="username">Full name: </label>
             <Field name="fullname" type="text" class="form-control" />
             <ErrorMessage name="fullname" class="error-feedback" />
           </div>
-          <div class="form-group">
+          <div class="form-group text-center">
             <label for="email">Email</label>
             <Field name="email" type="email" class="form-control" />
             <ErrorMessage name="email" class="error-feedback" />
           </div>
-           <div class="form-group">
+           <div class="form-group text-center">
             <label for="phone_number">Phone number</label>
             <Field name="phone_number" type="text" class="form-control" />
             <ErrorMessage name="phone_number" class="error-feedback" />
           </div>
-          <div class="form-group">
+          <div class="form-group text-center">
             <label for="password">Password</label>
             <Field name="password" type="password" class="form-control" />
             <ErrorMessage name="password" class="error-feedback" />
@@ -62,6 +62,7 @@ export default {
     Form,
     Field,
     ErrorMessage,
+    
   },
   data() {
     const schema = yup.object().shape({
@@ -111,10 +112,12 @@ export default {
 
       this.$store.dispatch("auth/register", user).then(
         (data) => {
-          console.log(data)
+          console.log(data);
+          localStorage.setItem('user', JSON.stringify(data.user))
           this.message = data.message;
           this.successful = true;
           this.loading = false;
+          alert("Your account was created successfully. Welcome aboard.")
           this.$router.push("/Home");
         },
         (error) => {

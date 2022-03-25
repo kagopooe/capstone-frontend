@@ -3,7 +3,7 @@ import Home from "./views/Home.vue";
 import Login from "./views/Login.vue";
 import Register from "./views/Register.vue";
 // lazy-loaded
-const Profile = () => import("./components/Profile.vue")
+const Profile = () => import("./views/Profile.vue")
 const BoardAdmin = () => import("./components/BoardAdmin.vue")
 const BoardUser = () => import("./components/BoardUser.vue")
 
