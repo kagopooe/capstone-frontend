@@ -14,7 +14,25 @@
               />
             </div>
             <p class="text-muted"> Name: </p>
-            <input type="text" v-model="currentUser.fullname" disabled><button type="button" class="btn btn-primary btn-sm border-primary border-3" style="width:35px; margin-right:0"><span class="iconify" data-icon="bi:pencil-square"></span></button>
+            <input type="text" v-model="currentUser.fullname" disabled><button type="button" class="btn btn-primary btn-sm border-primary border-3" style="width:35px; margin-right:0" data-bs-toggle="modal" data-bs-target="#nameChange"><span class="iconify" data-icon="bi:pencil-square"></span></button>
+            <div class="modal fade" id="nameChange" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                 <div class="modal-content">
+                    <div class="modal-header">
+                       <h5 class="modal-title" id="nameChangeLabel">Update your name below</h5>
+                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                      <div class="modal-body">
+                          <input type="text" placeholder="Enter new name">
+
+                      </div>
+                   <div class="modal-footer">
+                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                       <button type="button" class="btn btn-primary">Update</button> 
+                    </div>
+                  </div>
+              </div>
+          </div>
             <p class="text-muted mb-4">Email address:</p>
             <input type="text" v-model="currentUser.email" disabled><button type="button" class="btn btn-primary btn-sm" style="width:35px; margin-right:0"><span class="iconify" data-icon="bi:pencil-square"></span></button>
             <p class="text-muted mb-4"> Phone Number: </p>
@@ -66,12 +84,30 @@
 </template>
 
 <script>
-export default {
 
+const baseURL = 'https://pizzaplanet-capstone.herokuapp.com/api/test/user'
+
+export default {
+  data() {
+    putResult: null
+  },
 computed: {
     currentUser() {
       return this.$store.state.auth.user;
     },
+  methods: {
+    formatResponse(res) {
+      return JSON.stringify(res,null,2)
+    },
+    async putData() {
+      const { put_fullname, put_email, put_phone_number, put_password } = this.$refs
+      if (id) {
+        const putData = {
+          fullname: pu
+        }
+      }
+    }
+  },
 
 }}
 
