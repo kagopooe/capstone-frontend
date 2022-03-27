@@ -14,7 +14,7 @@
               />
             </div>
             <p class="text-muted"> Name: </p>
-            <input type="text" v-model="currentUser.fullname" disabled>
+            <input type="text" v-model="currentUser.fullname" disabled><button type="button" class="btn btn-primary btn-sm border-primary border-3" style="width:35px; margin-right:0" data-bs-toggle="modal" data-bs-target="#nameChange"><span class="iconify" data-icon="bi:pencil-square"></span></button>
             <div class="modal fade" id="nameChange" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
               <div class="modal-dialog">
                  <div class="modal-content">
@@ -34,12 +34,48 @@
               </div>
           </div>
             <p class="text-muted mb-4">Email address:</p>
-            <input type="text" v-model="currentUser.email" disabled>
+            <input type="text" v-model="currentUser.email" disabled><button type="button" class="btn btn-primary btn-sm" style="width:35px; margin-right:0" data-bs-toggle="modal" data-bs-target="#emailChange"><span class="iconify" data-icon="bi:pencil-square"></span></button>
+              <div class="modal fade" id="emailChange" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                 <div class="modal-content">
+                    <div class="modal-header">
+                       <h5 class="modal-title" id="emailChangeLabel">Update your email address below</h5>
+                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                      <div class="modal-body">
+                          <input type="text" placeholder="Enter new email address">
+
+                      </div>
+                   <div class="modal-footer">
+                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                       <button type="button" class="btn btn-primary">Update</button> 
+                    </div>
+                  </div>
+              </div>
+          </div>
+            
+            
             <p class="text-muted mb-4"> Phone Number: </p>
-            <input type="text" v-model="currentUser.phone_number" disabled><br><br>
+            <input type="text" v-model="currentUser.phone_number" disabled><button type="button" class="btn btn-primary btn-sm" style="width:35px; margin-right:0" data-bs-toggle="modal" data-bs-target="#numberChange"><span class="iconify" data-icon="bi:pencil-square"></span></button><br><br>
             <p style="text-decoration:underline blue; color:blue; cursor:pointer" @click="n" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Update password</p>
-            
-            
+              <div class="modal fade" id="numberChange" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                 <div class="modal-content">
+                    <div class="modal-header">
+                       <h5 class="modal-title" id="numberChangeLabel">Update your email address below</h5>
+                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                      <div class="modal-body">
+                          <input type="text" placeholder="Enter new phone number">
+
+                      </div>
+                   <div class="modal-footer">
+                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                       <button type="button" class="btn btn-primary">Update</button> 
+                    </div>
+                  </div>
+              </div>
+          </div>
             
             
             
