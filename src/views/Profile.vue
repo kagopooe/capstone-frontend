@@ -14,7 +14,7 @@
               />
             </div>
             <p class="text-muted"> Name: </p>
-            <input type="text" v-model="currentUser.fullname" disabled><button type="button" class="btn btn-primary btn-sm border-primary border-3" style="width:35px; margin-right:0" data-bs-toggle="modal" data-bs-target="#nameChange"><span class="iconify" data-icon="bi:pencil-square"></span></button>
+            <input type="text" v-model="currentUser.fullname" disabled>
             <div class="modal fade" id="nameChange" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
               <div class="modal-dialog">
                  <div class="modal-content">
@@ -34,10 +34,11 @@
               </div>
           </div>
             <p class="text-muted mb-4">Email address:</p>
-            <input type="text" v-model="currentUser.email" disabled><button type="button" class="btn btn-primary btn-sm" style="width:35px; margin-right:0"><span class="iconify" data-icon="bi:pencil-square"></span></button>
+            <input type="text" v-model="currentUser.email" disabled>
             <p class="text-muted mb-4"> Phone Number: </p>
-            <input type="text" v-model="currentUser.phone_number" disabled><button type="button" class="btn btn-primary btn-sm" style="width:35px; margin-right:0"><span class="iconify" data-icon="bi:pencil-square"></span></button><br><br>
+            <input type="text" v-model="currentUser.phone_number" disabled><br><br>
             <p style="text-decoration:underline blue; color:blue; cursor:pointer" @click="n" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Update password</p>
+            
             
             
             

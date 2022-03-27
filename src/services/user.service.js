@@ -1,5 +1,7 @@
+import { faHeartCirclePlus } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import authHeader from './auth-header';
+import http from '../http-common'
 
 const API_URL = 'https://pizzaplanet-capstone.herokuapp.com/api/test/';
 

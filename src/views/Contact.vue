@@ -1,36 +1,75 @@
 <template>
    <div id="form-sec">
-   <div class="contact-form-wrapper d-flex justify-content-center">
-    <form action="#" class="contact-form">
-      <h5 class="title">Contact us</h5>
-      <p class="description">Feel free to contact us if you need any assistance, any help or another question.
-      </p>
+      <div class="contact-form-wrapper d-flex justify-content-center">
+        <form class="contact-form" @submit.prevent="submitForm">
+            <h5 class="title">Contact us</h5>
+            <p class="description">Feel free to contact us if you need any assistance, any help or another question.
+              </p>
       <div>
-        <input type="text" class="form-control rounded border-white mb-3 form-input" id="name" placeholder="Name" required>
+            <input type="text" class="form-control rounded border-white mb-3 form-input" id="fullname" placeholder="Name" required name="name"/>
       </div>
       <div>
-        <input type="email" class="form-control rounded border-white mb-3 form-input" placeholder="Email" required>
+        <input type="email" id="email" class="form-control rounded border-white mb-3 form-input" placeholder="Email" required name="email">
       </div>
       <div>
-        <textarea id="message" class="form-control rounded border-white mb-3 form-text-area" rows="5" cols="30" placeholder="Message" required></textarea>
+        <textarea id="message" class="form-control rounded border-white mb-3 form-text-area" rows="5" cols="30" placeholder="Message" required name="message"></textarea>
       </div>
       <div class="submit-button-wrapper">
-        <input type="submit" value="Send" @click="formSubmitted">
+        <input type="submit" value="Send">
       </div>
     </form>
   </div>
   </div>
+
 </template>
 
 <script>
+
 export default {
-    methods : {
-        formSubmitted () {
-            alert("Form Submitted Successfully");
-            this.$router.push('/');
+  data(){
+      return {
+        form: {
+          fullname: '',
+          email: '',
+          message: ''
         }
+      }
+       
+  },
+  methods: {
+    submitForm() {
+      fetch('https://pizzaplanet-capstone.herokuapp.com/api/test/users', {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json",
+            'Access-Control-Allow-Origin': '*'
+        },
+        body: JSON.stringify ({
+          fullname: this.fullname,
+          email: this.email,
+          message: this.message
+
+        })
+      }).then(function(response) {
+        return response.text();
+      }).then(function (text) {
+        console.log(text);
+      }) .then(alert('Form Successfully Submitted'))
+      .catch (function (error) {
+        console.error(error)
+      })
     }
+  }
+
+
+
+
+
+
 }
+ 
+
+
 </script>
 
 <style>
