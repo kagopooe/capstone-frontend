@@ -25,19 +25,20 @@
 
 <script>
 
+import axios from 'axios'
+
 export default {
   data(){
       return {
-        form: {
           fullname: '',
           email: '',
           message: ''
-        }
+        
       }
        
   },
   methods: {
-    submitForm() {
+   submitForm() {
       fetch('https://pizzaplanet-capstone.herokuapp.com/api/test/users', {
         method: 'POST',
         headers: {
@@ -48,7 +49,6 @@ export default {
           fullname: this.fullname,
           email: this.email,
           message: this.message
-
         })
       }).then(function(response) {
         return response.text();
@@ -59,7 +59,11 @@ export default {
         console.error(error)
       })
     }
-  }
+
+
+  },
+
+
 
 
 
@@ -73,9 +77,7 @@ export default {
 </script>
 
 <style>
-/* .form-sec {
-    
-} */
+
 .contact-form-wrapper {
   padding: 100px 0;
 }

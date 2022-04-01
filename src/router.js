@@ -4,6 +4,7 @@ import Login from "./views/Login.vue";
 import Register from "./views/Register.vue";
 import Contact from "./views/Contact.vue"
 import Profile from "./views/Profile.vue";
+import Menu from './views/Menu.vue'
 // lazy-loaded
 // const Profile = () => import("./views/Profile.vue")
 const BoardAdmin = () => import("./components/BoardAdmin.vue")
@@ -16,8 +17,8 @@ const routes = [
     component: Home,
   },
   {
-    path: "/home",
-    component: Home,
+    path: "/menu",
+    component: Menu,
   },
   {
     path: "/login",
