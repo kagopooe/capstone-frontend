@@ -1,5 +1,3 @@
-<template>
-    <div>
   <h1 class="header">Menu</h1>
            <!-- container -->
            <div class="container mb-5 mt-5" v-for="item in list" v-bind:key="item._id">
@@ -8,7 +6,7 @@
                    <div class="col-md-4">
                        <div class="card mt-3">
                            <div class="product align-items-center p-2 text-center">
-                               <img :src="item.img" alt="" class="rounded" width="335">
+                               <img :src="item.img" alt="" class="rounded">
                                <h5> {{ item.title }} </h5>
                               <!-- card info -->
                                <div class="mt-3 info">
@@ -17,6 +15,9 @@
                                 </div>
                                 <div class="cost mt-3 text-dark">
                                     <span> R {{ item.price }}</span>
+                                    <div class="star mt-3 align-items-center">
+                                        <span>lorem lorem</span>
+                                    </div>
                                 </div>
                                 <!-- button for cards -->
                                 <div class="p-3 shoe text-center text-white mt-3 cursor">
@@ -29,90 +30,11 @@
                 </div>
             </div>
 
-
-
- 
-    </div> 
-</template>
-
-<style>
-.header {
-    text-align: center;
-}
-
-.container {
-    margin-top: 110px !important;
-}
-
-.card {
-    border: none;
-    outline:none;
-    background-color: #fff;
-    border-radius: 20px;
-}
-
-.card:hover {
-    transform: translateY(-15px);
-    transition: transform .3s;
-}
-
-.text1 {
-    font-size: 13px;
-    color: #cbcbcb
-}
-
-.info {
-    line-height: 17px;
-}
-
-.cost span {
-    color: #fb3531;
-    font-weight: bold;
-    font-size: 20px;
-}
-
-.shoe {
-    background: #dc3545 ;
-}
-
-.cursor {
-    cursor:pointer;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-}
-</style>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<script>
-import axios from 'axios'
-import VueAxios from 'vue-axios'
-
-export default {
-    name: 'Menu',
-    data() {
-        return {
-            list: null
-        }
-    },
-    mounted() {
-        axios.get('https://pizzaplanet-capstone.herokuapp.com/api/test/products')
-            .then((response) => {
-                this.list=response.data;
-                console.warn(response.data)
-            })
-    }
-}
-
-
-</script>
+            <div class="card" style="width: 18rem;" v-for="item in list" v-bind:key="item._id">
+                <img :src="item.img" class="card-img-top" alt="...">
+                <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
