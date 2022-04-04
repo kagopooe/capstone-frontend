@@ -5,7 +5,7 @@
            <div class="container mb-5 mt-5" v-for="item in list" v-bind:key="item._id">
                <div class="row">
                    <!-- card -->
-                   <div class="col-md-4">
+                   <div class="col">
                        <div class="card mt-3">
                            <div class="product align-items-center p-2 text-center">
                                <img :src="item.img" alt="" class="rounded" width="335">
@@ -54,6 +54,7 @@
 .card:hover {
     transform: translateY(-15px);
     transition: transform .3s;
+    
 }
 
 .text1 {

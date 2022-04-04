@@ -14,7 +14,7 @@
         <div class="navbar-nav ms-auto ">
             <router-link to="/" class="nav-item nav-link">Home</router-link>
             <router-link to="/Menu" class="nav-item nav-link">Menu</router-link>
-            <router-link to="/Order" class="nav-link">Order Now <span class="iconify" data-icon="charm:rocket"></span></router-link>
+            <router-link to="/order" class="nav-link">Order Now <span class="iconify" data-icon="charm:rocket"></span></router-link>
             <router-link to="/Contact" class="nav-link">Contact</router-link>
             <router-link to="/profile" class="nav-link" v-if="currentUser"><span class="iconify" data-icon="gg:profile"></span> {{ currentUser.fullname  }}</router-link>
             <router-link to="/Home" class="nav-link" v-if="currentUser" @click="logOut">Logout</router-link>
