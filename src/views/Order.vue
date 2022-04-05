@@ -10,7 +10,10 @@
                      v-model="address"
                      ref="autocomplete"
                      />
-                  <i class="arrow alternate circle right outline icon" @click="storeLocation"></i>
+                     <button class="ui icon button" @click="addressHandle">
+  <i class="arrow alternate circle right outline icon"></i>
+</button>
+                  
                </div>
             </div>
          </form>
@@ -26,7 +29,10 @@
        };
      },
      methods: {
-
+         addressHandle() {
+             alert(`Your current address - ${this.address} was successfully stored. Press ok to continue with your order!`)
+             this.$router.push("/Menu");
+         }
      }
    };
 </script>
