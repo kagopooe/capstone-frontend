@@ -6,6 +6,7 @@ import Contact from "./views/Contact.vue"
 import Profile from "./views/Profile.vue";
 import Menu from './views/Menu.vue'
 import Order from './views/Order.vue'
+import Cart from './views/Cart.vue'
 // lazy-loaded
 // const Profile = () => import("./views/Profile.vue")
 const BoardAdmin = () => import("./components/BoardAdmin.vue")
@@ -49,7 +50,12 @@ const routes = [
   {
     path: "/order",
     component: Order,
-  }
+  },
+  {
+    path: "/cart",
+    component: Cart,
+  },
+
 ];
 
 const router = createRouter({

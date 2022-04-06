@@ -19,7 +19,10 @@
                                     <span> R {{ item.price }}</span>
                                 </div>
                                 <!-- button for cards -->
-                                <div class="p-3 shoe text-center text-white mt-3 cursor">
+                                <div class="p-3 shoe text-center text-white mt-3 cursor" @click="removeFromCart(item._id)" v-if="isInCart(item._id)">
+                                    <span> Remove from cart</span>
+                                </div>
+                                <div class="p-3 shoe text-center text-white mt-3 cursor" @click="addToCart(item._id)" v-else>
                                     <span>Add to cart</span>
                                 </div>
                            </div>
@@ -31,8 +34,14 @@
 
 
 
- 
+    <div class="fixed-bottom">
+        <button class="circular ui icon red button right-floated" @click="$router.push('/cart')">
+            <i class="shopping cart icon"></i>
+        </button>
+    </div>
+    
     </div> 
+
 </template>
 
 <style>
@@ -81,6 +90,11 @@
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
 }
+
+.cartBtn {
+    background-color: #dc3545;
+
+}
 </style>
 
 
@@ -103,7 +117,8 @@ export default {
     name: 'Menu',
     data() {
         return {
-            list: null
+            list: null,
+            cart: [],
         }
     },
     mounted() {
@@ -112,7 +127,34 @@ export default {
                 this.list=response.data;
                 console.warn(response.data)
             })
-    }
+    },
+    methods: {
+      isInCart(itemId) {
+        if (!localStorage.getItem("cart")) {
+          localStorage.setItem("cart", JSON.stringify([]));
+        }
+        const cartItem = this.cart.find(({ _id }) => _id === itemId);
+        return Boolean(cartItem);
+      },
+      addToCart(itemId) {
+        const item = this.list.find(({ _id }) => _id === itemId);
+        if (!localStorage.getItem("cart")) {
+          localStorage.setItem("cart", JSON.stringify([]));
+        }
+        const cartItems = JSON.parse(localStorage.getItem("cart"));
+        cartItems.push(item);
+        localStorage.setItem("cart", JSON.stringify(cartItems));
+        this.cart = JSON.parse(localStorage.getItem("cart"));
+      },
+      removeFromCart(itemId) {
+        const cartItems = JSON.parse(localStorage.getItem("cart"));
+        const index = cartItems.findIndex(({ _id }) => _id === itemId);
+        cartItems.splice(index, 1);
+        localStorage.setItem("cart", JSON.stringify(cartItems));
+        this.cart = JSON.parse(localStorage.getItem("cart"));
+      },
+    },
+  
 }
 
 
