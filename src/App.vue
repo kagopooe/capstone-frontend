@@ -17,7 +17,6 @@
 
 <style>
   .content {
-  height: 110vh;
   width: 100%;
   
 }

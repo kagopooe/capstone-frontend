@@ -8,6 +8,10 @@
         <button @click="removeFromCart(index)">remove from cart</button>
       </div>
       <h5> Total: R {{ totalPrice }}</h5>
+      <div>
+      <button class="ui red button" @click="clearCart">Clear cart</button>
+      <button class="ui green button" v-if="cart.length >= 1" @click="checkout">Checkout</button>
+      </div>
     </div>
 
     
@@ -38,11 +42,23 @@
         localStorage.setItem("cart", JSON.stringify(cartItems));
         this.cart = JSON.parse(localStorage.getItem("cart"));
       },
+      clearCart() {
+        localStorage.cart = []
+        this.cart = []
+      },
       getCart() {
         if (!localStorage.getItem("cart")) {
           localStorage.setItem("cart", JSON.stringify([]));
         }
         this.cart = JSON.parse(localStorage.getItem("cart"));
+      },
+      checkout() {
+        
+        setTimeout(() => {
+        alert('Order received. Order will be delivered to your doorstep within 30 - 60 minutes')
+        localStorage.cart = []
+        this.$router.push("/Home");
+        }, 2500)
       },
     },
     beforeMount() {

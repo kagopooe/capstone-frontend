@@ -86,10 +86,12 @@
 	Footer 
 ====================== */
 
+
 /* Main Footer */
 footer .main-footer{	
     padding: 20px 0;
     background: #cc0000;
+    /* height: 100px */
 }
 
 footer ul{	
