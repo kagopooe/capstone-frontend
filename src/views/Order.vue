@@ -28,11 +28,26 @@
          address: "",
        };
      },
+     computed: {
+      currentUser() {
+      return this.$store.state.auth.user;
+    }
+     },
+     created () {
+        if (!this.currentUser) {
+           alert("Please sign-in to make an order")
+            this.$router.push("/login");
+        }
+     },
      methods: {
          addressHandle() {
+            if (this.address.length <= 10) {
+               alert("Please enter a valid address")
+               return false
+            } else {
              alert(`Your current address - ${this.address} was successfully stored. Press ok to continue with your order!`)
              this.$router.push("/Menu");
-         }
+         }}
      }
    };
 </script>

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="content">
         <h1 class="text-center"> Cart </h1>
         <p v-if="cart.length <=0">Cart is Empty</p>
         <div v-for="(c, index) of cart" :key="c._id">
@@ -16,6 +16,14 @@
 
     
 </template>
+
+<style scoped>
+.content {
+  height: 200vh;
+}
+</style>
+
+
 
 <script>
   export default {

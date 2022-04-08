@@ -34,11 +34,7 @@
 
 
 
-    <div class="fixed-bottom">
-        <button class="circular ui icon red button right-floated" @click="$router.push('/cart')">
-            <i class="shopping cart icon"></i>
-        </button>
-    </div>
+    
     
     </div> 
 

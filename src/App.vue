@@ -6,7 +6,11 @@
 
 
 
-
+    <div class="fixed-bottom" v-if="currentUser">
+        <button class="circular ui icon red button right-floated" @click="$router.push('/cart')">
+            <i class="shopping cart icon"></i>
+        </button>
+    </div>
       </div>
     
     
@@ -33,6 +37,11 @@ export default {
   components: {
     Navbar: Navbar,
     Footer: Footer
+  },
+  computed: {
+    currentUser() {
+      return this.$store.state.auth.user;
+    }
   }
 }
 
