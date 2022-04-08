@@ -26,17 +26,29 @@
 <script>
 
 import axios from 'axios'
+import { warn } from '@vue/runtime-core'
 
 export default {
   data(){
       return {
+        form : {
           fullname: '',
           email: '',
           message: ''
-        
+        }
       }
        
   },
+  // mounted() {
+  //   axios.post('https://pizzaplanet-capstone.herokuapp.com/api/test/users')
+  //     .then((response) => {
+  //       this.form=response.data;
+  //       console.warn(response.data)
+  //     })
+
+
+
+  // },
   methods: {
    submitForm() {
       fetch('https://pizzaplanet-capstone.herokuapp.com/api/test/users', {
@@ -123,8 +135,8 @@ export default {
 }
 
 .contact-form .form-control:focus {
-  border-color: #f33fb0;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.07), 0 0 8px #f33fb0;
+  border-color: crimson;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.07), 0 0 8px crimson;
 }
 
 .contact-form .title {
@@ -146,7 +158,7 @@ export default {
 .contact-form .submit-button-wrapper input {
   border: none;
   border-radius: 4px;
-  background-color: #f23292;
+  background-color: crimson;
   color: white;
   text-transform: uppercase;
   padding: 10px 60px;
@@ -155,7 +167,7 @@ export default {
 }
 
 .contact-form .submit-button-wrapper input:hover {
-  background-color: #d30069;
+  background-color: crimson;
 }
 
 
