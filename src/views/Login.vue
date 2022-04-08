@@ -1,5 +1,5 @@
 <template>
-  <div class="col-md-12">
+  <div class="col-md-12 sec">
     <div class="card card-container">
       <img
         id="profile-img"
@@ -139,6 +139,10 @@ label {
 
 .reg-link{
     text-align: center;
+}
+
+.sec {
+  height: 90vh;
 }
 
 </style>

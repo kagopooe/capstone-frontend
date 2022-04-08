@@ -36,3 +36,9 @@
      }
    };
 </script>
+
+<style>
+section {
+   height: 100vh;
+}
+</style>

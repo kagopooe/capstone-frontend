@@ -1,5 +1,5 @@
 <template>
-  <div class="col-md-12">
+  <div class="col-md-12 sect">
     <div class="card card-container">
       <img
         id="profile-img"
@@ -172,5 +172,9 @@ label {
 
 .error-feedback {
   color: red;
+}
+
+.sect {
+  height: 85vh;
 }
 </style>
