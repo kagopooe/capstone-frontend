@@ -8,7 +8,7 @@
         <button @click="removeFromCart(index)">remove from cart</button>
       </div>
       <h5> Total: R {{ totalPrice }}</h5>
-      <div>
+      <div class='bottom-btns'>
       <button class="ui red button" @click="clearCart">Clear cart</button>
       <button class="ui green button" v-if="cart.length >= 1" @click="checkout">Checkout</button>
       </div>
@@ -19,7 +19,10 @@
 
 <style scoped>
 .content {
-  height: 200vh;
+  height: 250vh;
+}
+.bottom-btns {
+  padding-bottom: 25px;
 }
 </style>
 

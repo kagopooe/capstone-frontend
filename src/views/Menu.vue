@@ -124,6 +124,11 @@ export default {
                 console.warn(response.data)
             })
     },
+    computed: {
+      currentUser() {
+      return this.$store.state.auth.user;
+    }
+     },
     methods: {
       isInCart(itemId) {
         if (!localStorage.getItem("cart")) {
@@ -137,6 +142,10 @@ export default {
         if (!localStorage.getItem("cart")) {
           localStorage.setItem("cart", JSON.stringify([]));
         }
+        if(!this.currentUser) {
+            alert("Please log-in to begin making an order")
+            this.$router.push("/login");
+        }
         const cartItems = JSON.parse(localStorage.getItem("cart"));
         cartItems.push(item);
         localStorage.setItem("cart", JSON.stringify(cartItems));
@@ -149,6 +158,7 @@ export default {
         localStorage.setItem("cart", JSON.stringify(cartItems));
         this.cart = JSON.parse(localStorage.getItem("cart"));
       },
+
     },
   
 }
